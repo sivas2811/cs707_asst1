@@ -66,13 +66,14 @@ def get_vals(fname):
 # Fill out <tests> dict of tests, grouped by test name
 for f in fnames:
   lines = get_vals(f)
-  output = lines[0] # header
   for line in lines[1:]:
     if len(line[0]): # skip empty lines
       name = line[0]
       if name not in tests:
         tests[name] = []
       tests[name].append(Entry(line))
+
+print 'Latitude,Longitude,Time,RSSI,CINR,Uplink,Downlink'
 
 # Print them
 for testname, entries in tests.iteritems():
